@@ -1,6 +1,6 @@
 %define name gjs
-%define version 0.2
-%define release %mkrel 2
+%define version 0.3
+%define release %mkrel 1
 %define api 1.0
 %define major 0
 %define libname %mklibname %name %major
@@ -9,14 +9,14 @@ Summary: JavaScript bindings based on gobject-introspection
 Name: %{name}
 Version: %{version}
 Release: %{release}
-Source0: %{name}-%{version}.tar.bz2
-Patch: gjs-0.2-fix-linking.patch
+Source0: http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
 License: BSD
 Group: Development/Other
 Url:  http://live.gnome.org/Gjs
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: xulrunner-devel >= 1.9
 BuildRequires: gobject-introspection-devel >= 0.6
+BuildRequires: dbus-glib-devel
 
 %description
 This package contains JavaScript bindings based on gobject-introspection.
@@ -39,8 +39,6 @@ This package contains JavaScript bindings based on gobject-introspection.
 
 %prep
 %setup -q
-%patch -p1
-autoreconf
 
 %build
 %configure2_5x
@@ -61,16 +59,18 @@ rm -rf %{buildroot}
 
 %files -n %libname
 %defattr(-,root,root)
+%_libdir/libgjs-dbus.so.%{major}*
 %_libdir/libgjs-gi.so.%{major}*
 %_libdir/libgjs.so.%{major}*
 %_libdir/gjs-%api
 
 %files -n %develname
 %defattr(-,root,root)
+%_libdir/libgjs-dbus.so
 %_libdir/libgjs-gi.so
 %_libdir/libgjs.so
-%_libdir/libgjs-gi.la
-%_libdir/libgjs.la
+%_libdir/libgjs*.la
+%_libdir/pkgconfig/gjs-dbus-%api.pc
 %_libdir/pkgconfig/gjs-%api.pc
 %_libdir/pkgconfig/gjs-gi-%api.pc
 %_includedir/gjs-%api
