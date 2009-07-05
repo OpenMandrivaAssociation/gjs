@@ -10,6 +10,7 @@ Name: %{name}
 Version: %{version}
 Release: %{release}
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
+Patch: gjs-0.3-format-strings.patch
 License: BSD
 Group: Development/Other
 Url:  http://live.gnome.org/Gjs
@@ -39,6 +40,7 @@ This package contains JavaScript bindings based on gobject-introspection.
 
 %prep
 %setup -q
+%patch -p1
 
 %build
 %configure2_5x
