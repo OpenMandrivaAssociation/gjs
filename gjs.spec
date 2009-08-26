@@ -1,5 +1,5 @@
 %define name gjs
-%define version 0.3
+%define version 0.4
 %define release %mkrel 1
 %define api 1.0
 %define major 0
@@ -56,6 +56,7 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
 %doc README COPYING NEWS
+%_bindir/gjs
 %_bindir/gjs-console
 %_datadir/%name-%api
 
