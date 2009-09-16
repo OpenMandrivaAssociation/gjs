@@ -25,6 +25,7 @@ This package contains JavaScript bindings based on gobject-introspection.
 %package -n %libname
 Group:System/Libraries
 Summary:JavaScript bindings based on gobject-introspection
+Requires: %xulrunner_libname
 
 %description -n %libname
 This package contains JavaScript bindings based on gobject-introspection.
@@ -35,6 +36,8 @@ Summary:JavaScript bindings based on gobject-introspection
 Requires: %libname = %version-%release
 Provides: %name-devel = %version-%release
 Provides: lib%name-devel = %version-%release
+Requires: xulrunner-devel = %xulrunner_version
+
 %description -n %develname
 This package contains JavaScript bindings based on gobject-introspection.
 
