@@ -5,6 +5,12 @@
 %define major 0
 %define libname %mklibname %name %major
 %define develname %mklibname -d %name
+
+%if %{?xulrunner_libname:0}%{?!xulrunner_libname:1}
+%define xulrunner_libname libxulrunner
+%define xulrunner_version 1.9
+%endif
+
 Summary: JavaScript bindings based on gobject-introspection
 Name: %{name}
 Version: %{version}
