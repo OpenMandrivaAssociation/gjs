@@ -1,6 +1,6 @@
 %define name gjs
 %define version 0.4
-%define release %mkrel 5
+%define release %mkrel 6
 %define api 1.0
 %define major 0
 %define libname %mklibname %name %major
