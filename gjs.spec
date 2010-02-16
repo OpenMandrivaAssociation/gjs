@@ -1,6 +1,6 @@
 %define name gjs
-%define version 0.4
-%define release %mkrel 6
+%define version 0.5
+%define release %mkrel 1
 %define api 1.0
 %define major 0
 %define libname %mklibname %name %major
@@ -17,10 +17,6 @@ Version: %{version}
 Release: %{release}
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
 Patch: gjs-0.3-format-strings.patch
-#gw from Gentoo: fix build
-#http://bugs.gentoo.org/292995
-#https://bugzilla.gnome.org/show_bug.cgi?id=604722 
-Patch1: gjs-fix-js-build.patch
 License: BSD
 Group: Development/Other
 Url:  http://live.gnome.org/Gjs
@@ -54,7 +50,6 @@ This package contains JavaScript bindings based on gobject-introspection.
 %prep
 %setup -q
 %patch -p1
-%patch1 -p1
 
 %build
 %configure2_5x
