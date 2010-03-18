@@ -1,5 +1,5 @@
 %define name gjs
-%define version 0.5
+%define version 0.6
 %define release %mkrel 1
 %define api 1.0
 %define major 0
