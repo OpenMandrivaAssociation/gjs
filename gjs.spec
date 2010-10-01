@@ -1,5 +1,5 @@
 %define name gjs
-%define version 0.7.1
+%define version 0.7.3
 %define release %mkrel 1
 %define api 1.0
 %define major 0
@@ -17,7 +17,6 @@ Version: %{version}
 Release: %{release}
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
 Patch: gjs-0.3-format-strings.patch
-Patch1: gjs-0.7.1-xulrunner-2.0.patch
 License: BSD
 Group: Development/Other
 Url:  http://live.gnome.org/Gjs
@@ -51,11 +50,10 @@ This package contains JavaScript bindings based on gobject-introspection.
 %prep
 %setup -q
 %patch -p1
-%patch1 -p0 -b .xul
 
 %build
 %configure2_5x
-%make
+%make libregress_la_LIBADD=-lgio-2.0
 
 %install
 rm -rf %{buildroot}
