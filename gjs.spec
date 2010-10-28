@@ -1,5 +1,5 @@
 %define name gjs
-%define version 0.7.4
+%define version 0.7.5
 %define release %mkrel 1
 %define api 1.0
 %define major 0
@@ -82,7 +82,8 @@ rm -rf %{buildroot}
 %_libdir/libgjs-gi.so
 %_libdir/libgjs.so
 %_libdir/libgjs*.la
-%_libdir/pkgconfig/gjs-dbus-%api.pc
 %_libdir/pkgconfig/gjs-%api.pc
+%_libdir/pkgconfig/gjs-dbus-%api.pc
 %_libdir/pkgconfig/gjs-gi-%api.pc
+%_libdir/pkgconfig/gjs-internals-%api.pc
 %_includedir/gjs-%api
