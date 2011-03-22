@@ -1,5 +1,5 @@
 %define name gjs
-%define version 0.7.7
+%define version 0.7.13
 %define release %mkrel 1
 %define api 1.0
 %define major 0
@@ -16,13 +16,13 @@ Name: %{name}
 Version: %{version}
 Release: %{release}
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
-Patch: gjs-0.3-format-strings.patch
+Patch0: gjs-0.7.13-link.patch
 License: BSD
 Group: Development/Other
 Url:  http://live.gnome.org/Gjs
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: xulrunner-devel >= 1.9
-BuildRequires: gobject-introspection-devel >= 0.6
+BuildRequires: gobject-introspection-devel >= 0.10.1
 BuildRequires: dbus-glib-devel
 
 %description
@@ -49,11 +49,12 @@ This package contains JavaScript bindings based on gobject-introspection.
 
 %prep
 %setup -q
-%patch -p1
+%patch0 -p0
 
 %build
+autoreconf -fi
 %configure2_5x
-%make libregress_la_LIBADD=-lgio-2.0
+%make
 
 %install
 rm -rf %{buildroot}
