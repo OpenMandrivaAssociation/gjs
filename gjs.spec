@@ -24,6 +24,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: xulrunner-devel >= 1.9
 BuildRequires: gobject-introspection-devel >= 0.10.1
 BuildRequires: dbus-glib-devel
+BuildRequires: readline-devel
 
 %description
 This package contains JavaScript bindings based on gobject-introspection.
