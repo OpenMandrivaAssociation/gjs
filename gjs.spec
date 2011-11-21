@@ -1,91 +1,95 @@
-%define name gjs
-%define version 0.7.14
-%define release %mkrel 2
-%define api 1.0
-%define major 0
-%define libname %mklibname %name %major
-%define develname %mklibname -d %name
-
-%if %{?xulrunner_libname:0}%{?!xulrunner_libname:1}
-%define xulrunner_libname libxulrunner
-%define xulrunner_version 1.9
-%endif
+%define api			1.0
+%define major		0
+%define girmajor	1.0
+%define libname		%mklibname %{name} %major
+%define develname	%mklibname -d %{name}
+%define girname		%mklibname %{name}-gir %{girmajor}
 
 Summary: JavaScript bindings based on gobject-introspection
-Name: %{name}
-Version: %{version}
-Release: %{release}
-Source0: http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
-Patch0: gjs-0.7.13-link.patch
+Name: gjs
+Version: 1.31.0
+Release: 1
+Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
+Patch0:	gjs-1.31.0_g_constant_info_free_value.patch
 License: BSD
 Group: Development/Other
 Url:  http://live.gnome.org/Gjs
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: xulrunner-devel >= 1.9
-BuildRequires: gobject-introspection-devel >= 0.10.1
-BuildRequires: dbus-glib-devel
-BuildRequires: readline-devel
+
+BuildRequires:	pkgconfig(cairo)
+BuildRequires:	pkgconfig(cairo-gobject)
+BuildRequires:	pkgconfig(dbus-glib-1)
+BuildRequires:	pkgconfig(gio-2.0)
+BuildRequires:	pkgconfig(gmodule-2.0)
+BuildRequires:	pkgconfig(gobject-2.0) >= 2.18.0
+BuildRequires:	pkgconfig(gobject-introspection-1.0) >= 1.29.16
+BuildRequires:	pkgconfig(gthread-2.0)
+BuildRequires:	pkgconfig(mozjs185)
 
 %description
 This package contains JavaScript bindings based on gobject-introspection.
 
-%package -n %libname
-Group:System/Libraries
-Summary:JavaScript bindings based on gobject-introspection
-Requires: %xulrunner_libname
+%package -n %{libname}
+Group: System/Libraries
+Summary: JavaScript bindings based on gobject-introspection
 
-%description -n %libname
+%description -n %{libname}
 This package contains JavaScript bindings based on gobject-introspection.
 
-%package -n %develname
-Group:Development/C
-Summary:JavaScript bindings based on gobject-introspection
-Requires: %libname = %version-%release
-Provides: %name-devel = %version-%release
-Provides: lib%name-devel = %version-%release
-Requires: xulrunner-devel = %xulrunner_version
+%package -n %{girname}
+Summary: GObject Introspection interface description for %{name}
+Group: System/Libraries
+Requires: %{libname} = %{version}-%{release}
 
-%description -n %develname
+%description -n %{girname}
+GObject Introspection interface description for %{name}.
+
+%package -n %{develname}
+Group: Development/C
+Summary: JavaScript bindings based on gobject-introspection
+Requires: %{libname} = %{version}-%{release}
+Provides: %{name}-devel = %{version}-%{release}
+
+%description -n %{develname}
 This package contains JavaScript bindings based on gobject-introspection.
 
 %prep
 %setup -q
-%patch0 -p0
+%apply_patches
 
 %build
-autoreconf -fi
-%configure2_5x
-%make
+%configure2_5x \
+	--disable-static \
+	--enable-maintainer-mod
+
+%make LIBS='-lgio-2.0'
 
 %install
 rm -rf %{buildroot}
 %makeinstall_std
-
-%clean
-rm -rf %{buildroot}
+find %{buildroot} -name '*.la' -exec rm -f {} ';'
 
 %files
-%defattr(-,root,root)
 %doc README COPYING NEWS
-%_bindir/gjs
-%_bindir/gjs-console
-%_datadir/%name-%api
+%{_bindir}/gjs
+%{_bindir}/gjs-console
+%{_datadir}/%{name}-%api
+%{_libdir}/gjs-%api
 
-%files -n %libname
-%defattr(-,root,root)
-%_libdir/libgjs-dbus.so.%{major}*
-%_libdir/libgjs-gi.so.%{major}*
-%_libdir/libgjs.so.%{major}*
-%_libdir/gjs-%api
+%files -n %{libname}
+%{_libdir}/libgjs-dbus.so.%{major}*
+%{_libdir}/libgjs-gdbus.so.%{major}*
+%{_libdir}/libgjs.so.%{major}*
 
-%files -n %develname
-%defattr(-,root,root)
-%_libdir/libgjs-dbus.so
-%_libdir/libgjs-gi.so
-%_libdir/libgjs.so
-%_libdir/libgjs*.la
-%_libdir/pkgconfig/gjs-%api.pc
-%_libdir/pkgconfig/gjs-dbus-%api.pc
-%_libdir/pkgconfig/gjs-gi-%api.pc
-%_libdir/pkgconfig/gjs-internals-%api.pc
-%_includedir/gjs-%api
+%files -n %{girname}
+%{_libdir}/gjs/GjsDBus-%{girmajor}.typelib
+
+%files -n %{develname}
+%{_libdir}/libgjs-dbus.so
+%{_libdir}/libgjs-gdbus.so
+%{_libdir}/libgjs.so
+%{_libdir}/pkgconfig/gjs-%api.pc
+%{_libdir}/pkgconfig/gjs-dbus-%api.pc
+%{_libdir}/pkgconfig/gjs-internals-%api.pc
+%{_libdir}/gjs/GjsDBus-%{girmajor}.gir
+%{_includedir}/gjs-%api
+
