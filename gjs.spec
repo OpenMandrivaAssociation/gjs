@@ -7,7 +7,7 @@
 
 Summary: JavaScript bindings based on gobject-introspection
 Name: gjs
-Version: 1.31.0
+Version: 1.32.0
 Release: 1
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
 Patch0:	gjs-1.31.0_g_constant_info_free_value.patch
@@ -58,8 +58,7 @@ This package contains JavaScript bindings based on gobject-introspection.
 
 %build
 %configure2_5x \
-	--disable-static \
-	--enable-maintainer-mod
+	--disable-static
 
 %make LIBS='-lgio-2.0'
 
@@ -81,7 +80,7 @@ find %{buildroot} -name '*.la' -exec rm -f {} ';'
 %{_libdir}/libgjs.so.%{major}*
 
 %files -n %{girname}
-%{_libdir}/gjs/GjsDBus-%{girmajor}.typelib
+%{_libdir}/girepository-1.0/GjsDBus-1.0.typelib
 
 %files -n %{develname}
 %{_libdir}/libgjs-dbus.so
@@ -90,6 +89,5 @@ find %{buildroot} -name '*.la' -exec rm -f {} ';'
 %{_libdir}/pkgconfig/gjs-%api.pc
 %{_libdir}/pkgconfig/gjs-dbus-%api.pc
 %{_libdir}/pkgconfig/gjs-internals-%api.pc
-%{_libdir}/gjs/GjsDBus-%{girmajor}.gir
+%{_datadir}/gir-1.0/GjsDBus-%{girmajor}.gir
 %{_includedir}/gjs-%api
-
