@@ -8,12 +8,12 @@
 Summary: JavaScript bindings based on gobject-introspection
 Name: gjs
 Version: 1.32.0
-Release: 1
-Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
-Patch0:	gjs-1.31.0_g_constant_info_free_value.patch
+Release: 2
 License: BSD
 Group: Development/Other
 Url:  http://live.gnome.org/Gjs
+Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
+Patch0:	gjs-1.31.0_g_constant_info_free_value.patch
 
 BuildRequires:	pkgconfig(cairo)
 BuildRequires:	pkgconfig(cairo-gobject)
@@ -38,7 +38,6 @@ This package contains JavaScript bindings based on gobject-introspection.
 %package -n %{girname}
 Summary: GObject Introspection interface description for %{name}
 Group: System/Libraries
-Requires: %{libname} = %{version}-%{release}
 
 %description -n %{girname}
 GObject Introspection interface description for %{name}.
@@ -47,6 +46,7 @@ GObject Introspection interface description for %{name}.
 Group: Development/C
 Summary: JavaScript bindings based on gobject-introspection
 Requires: %{libname} = %{version}-%{release}
+Requires: %{girname} = %{version}-%{release}
 Provides: %{name}-devel = %{version}-%{release}
 
 %description -n %{develname}
@@ -63,7 +63,6 @@ This package contains JavaScript bindings based on gobject-introspection.
 %make LIBS='-lgio-2.0'
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 find %{buildroot} -name '*.la' -exec rm -f {} ';'
 
