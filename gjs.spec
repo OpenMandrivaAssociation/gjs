@@ -3,13 +3,14 @@
 %define api	1.0
 %define major	0
 %define libname	%mklibname %{name} %{major}
+%define libdbus	%mklibname %{name}-dbus %{major}
 %define devname	%mklibname -d %{name}
 %define girname	%mklibname %{name}-gir %{api}
 
 Summary:	JavaScript bindings based on gobject-introspection
 Name:		gjs
 Version:	1.34.0
-Release:	3
+Release:	4
 License:	BSD
 Group:		Development/Other
 Url:		http://live.gnome.org/Gjs
@@ -29,10 +30,18 @@ BuildRequires:	pkgconfig(mozjs185)
 This package contains JavaScript bindings based on gobject-introspection.
 
 %package -n %{libname}
-Group:		System/Libraries
 Summary:	JavaScript bindings based on gobject-introspection
+Group:		System/Libraries
 
 %description -n %{libname}
+This package contains JavaScript bindings based on gobject-introspection.
+
+%package -n %{libdbus}
+Summary:	JavaScript bindings based on gobject-introspection
+Group:		System/Libraries
+Conflicts:	%{_lib}gjs0 < 1.34.0-4
+
+%description -n %{libdbus}
 This package contains JavaScript bindings based on gobject-introspection.
 
 %package -n %{girname}
@@ -43,9 +52,10 @@ Group:		System/Libraries
 GObject Introspection interface description for %{name}.
 
 %package -n %{devname}
-Group:		Development/C
 Summary:	JavaScript bindings based on gobject-introspection
+Group:		Development/C
 Requires:	%{libname} = %{version}-%{release}
+Requires:	%{libdbus} = %{version}-%{release}
 Requires:	%{girname} = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
 
@@ -73,11 +83,13 @@ This package contains JavaScript bindings based on gobject-introspection.
 %{_libdir}/gjs-%{api}
 
 %files -n %{libname}
-%{_libdir}/libgjs-dbus.so.%{major}*
 %{_libdir}/libgjs.so.%{major}*
 
+%files -n %{libdbus}
+%{_libdir}/libgjs-dbus.so.%{major}*
+
 %files -n %{girname}
-%{_libdir}/gjs/girepository-1.0/GjsPrivate-1.0.typelib
+%{_libdir}/gjs/girepository-1.0/GjsPrivate-%{api}.typelib
 
 %files -n %{devname}
 %{_libdir}/libgjs-dbus.so
