@@ -3,7 +3,6 @@
 %define api	1.0
 %define major	0
 %define libname	%mklibname %{name} %{major}
-%define libdbus	%mklibname %{name}-dbus %{major}
 %define devname	%mklibname -d %{name}
 %define girname	%mklibname %{name}-gir %{api}
 
@@ -47,7 +46,6 @@ GObject Introspection interface description for %{name}.
 Summary:	JavaScript bindings based on gobject-introspection
 Group:		Development/C
 Requires:	%{libname} = %{version}-%{release}
-Requires:	%{libdbus} = %{version}-%{release}
 Requires:	%{girname} = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
 
