@@ -36,14 +36,6 @@ Group:		System/Libraries
 %description -n %{libname}
 This package contains JavaScript bindings based on gobject-introspection.
 
-%package -n %{libdbus}
-Summary:	JavaScript bindings based on gobject-introspection
-Group:		System/Libraries
-Conflicts:	%{_lib}gjs0 < 1.34.0-4
-
-%description -n %{libdbus}
-This package contains JavaScript bindings based on gobject-introspection.
-
 %package -n %{girname}
 Summary:	GObject Introspection interface description for %{name}
 Group:		System/Libraries
@@ -85,17 +77,12 @@ This package contains JavaScript bindings based on gobject-introspection.
 %files -n %{libname}
 %{_libdir}/libgjs.so.%{major}*
 
-%files -n %{libdbus}
-%{_libdir}/libgjs-dbus.so.%{major}*
-
 %files -n %{girname}
 %{_libdir}/gjs/girepository-1.0/GjsPrivate-%{api}.typelib
 
 %files -n %{devname}
-%{_libdir}/libgjs-dbus.so
 %{_libdir}/libgjs.so
 %{_libdir}/pkgconfig/gjs-%{api}.pc
-%{_libdir}/pkgconfig/gjs-dbus-%{api}.pc
 %{_libdir}/pkgconfig/gjs-internals-%{api}.pc
 %{_includedir}/gjs-%{api}
 
