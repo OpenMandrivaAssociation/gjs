@@ -8,7 +8,7 @@
 
 Summary:	JavaScript bindings based on gobject-introspection
 Name:		gjs
-Version:	1.36.1
+Version:	1.37.6
 Release:	1
 License:	BSD
 Group:		Development/Other
@@ -23,7 +23,7 @@ BuildRequires:	pkgconfig(gmodule-2.0)
 BuildRequires:	pkgconfig(gobject-2.0) >= 2.18.0
 BuildRequires:	pkgconfig(gobject-introspection-1.0) >= 1.29.16
 BuildRequires:	pkgconfig(gthread-2.0)
-BuildRequires:	pkgconfig(mozjs185)
+BuildRequires:	pkgconfig(mozjs-17.0)
 
 %description
 This package contains JavaScript bindings based on gobject-introspection.
@@ -70,7 +70,6 @@ This package contains JavaScript bindings based on gobject-introspection.
 %{_bindir}/gjs
 %{_bindir}/gjs-console
 %{_datadir}/%{name}-%{api}
-%{_libdir}/gjs-%{api}
 
 %files -n %{libname}
 %{_libdir}/libgjs.so.%{major}*
@@ -83,4 +82,3 @@ This package contains JavaScript bindings based on gobject-introspection.
 %{_libdir}/pkgconfig/gjs-%{api}.pc
 %{_libdir}/pkgconfig/gjs-internals-%{api}.pc
 %{_includedir}/gjs-%{api}
-
