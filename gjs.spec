@@ -6,6 +6,8 @@
 %define devname	%mklibname -d %{name}
 %define girname	%mklibname %{name}-gir %{api}
 
+%define __noautoreq 'devel\\(libmozjs-24(.*)'
+
 Summary:	JavaScript bindings based on gobject-introspection
 Name:		gjs
 Version:	1.42.0
@@ -47,6 +49,7 @@ Summary:	JavaScript bindings based on gobject-introspection
 Group:		Development/C
 Requires:	%{libname} = %{version}-%{release}
 Requires:	%{girname} = %{version}-%{release}
+Requires:	pkgconfig(mozjs-24)
 Provides:	%{name}-devel = %{version}-%{release}
 
 %description -n %{devname}
