@@ -1,4 +1,5 @@
 removed_sources:
   gjs-1.36.1.tar.xz: a8e66339e0db086285a66ea262d4bfa1781afac7
-sources:
   gjs-1.37.6.tar.xz: 8bc9cd71da8de1eaac92217d48b787b660f0e0fe
+sources:
+  gjs-1.42.0.tar.xz: 5fb84b6be866e64280beb8089ae7b4856a8cbde2
