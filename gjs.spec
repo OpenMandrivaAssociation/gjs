@@ -10,8 +10,8 @@
 
 Summary:	JavaScript bindings based on gobject-introspection
 Name:		gjs
-Version:	 1.43.3
-Release:	3
+Version:	1.43.3
+Release:	4
 License:	BSD
 Group:		Development/Other
 Url:		http://live.gnome.org/Gjs
@@ -60,7 +60,7 @@ This package contains JavaScript bindings based on gobject-introspection.
 %apply_patches
 
 %build
-%configure2_5x \
+%configure \
 	--disable-static
 
 %make
