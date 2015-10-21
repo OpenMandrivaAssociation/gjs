@@ -7,6 +7,7 @@
 %define girname	%mklibname %{name}-gir %{api}
 
 %define __noautoreq 'devel\\(libmozjs-24(.*)'
+%define _disable_rebuild_configure 1
 
 Summary:	JavaScript bindings based on gobject-introspection
 Name:		gjs
@@ -15,7 +16,7 @@ Release:	5
 License:	BSD
 Group:		Development/Other
 Url:		http://live.gnome.org/Gjs
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
+Source0:	http://download.gnome.org/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
 
 BuildRequires:	pkgconfig(cairo)
 BuildRequires:	pkgconfig(cairo-gobject)
