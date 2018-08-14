@@ -6,7 +6,7 @@
 %define devname	%mklibname -d %{name}
 %define girname	%mklibname %{name}-gir %{api}
 
-%define __noautoreq 'devel\\(libmozjs-24(.*)'
+%define __noautoreq 'devel\\(libmozjs-52(.*)'
 %define _disable_rebuild_configure 1
 
 Summary:	JavaScript bindings based on gobject-introspection
@@ -26,7 +26,7 @@ BuildRequires:	pkgconfig(gmodule-2.0)
 BuildRequires:	pkgconfig(gobject-2.0) >= 2.18.0
 BuildRequires:	pkgconfig(gobject-introspection-1.0) >= 1.29.16
 BuildRequires:	pkgconfig(gthread-2.0)
-BuildRequires:	pkgconfig(mozjs-24)
+BuildRequires:	pkgconfig(mozjs-52)
 
 %description
 This package contains JavaScript bindings based on gobject-introspection.
@@ -50,7 +50,7 @@ Summary:	JavaScript bindings based on gobject-introspection
 Group:		Development/C
 Requires:	%{libname} = %{version}-%{release}
 Requires:	%{girname} = %{version}-%{release}
-Requires:	pkgconfig(mozjs-24)
+Requires:	pkgconfig(mozjs-52)
 Provides:	%{name}-devel = %{version}-%{release}
 
 %description -n %{devname}
