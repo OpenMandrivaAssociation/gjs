@@ -20,7 +20,7 @@ Source0:	http://download.gnome.org/sources/%{name}/%{url_ver}/%{name}-%{version}
 
 BuildRequires:	pkgconfig(cairo)
 BuildRequires:	pkgconfig(cairo-gobject)
-#BuildRequires:	pkgconfig(dbus-glib-1)
+BuildRequires:	pkgconfig(dbus-glib-1)
 BuildRequires:	pkgconfig(gio-2.0)
 BuildRequires:	pkgconfig(gmodule-2.0)
 BuildRequires:	pkgconfig(gobject-2.0) >= 2.18.0
