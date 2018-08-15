@@ -28,6 +28,7 @@ BuildRequires:	pkgconfig(gobject-introspection-1.0) >= 1.29.16
 BuildRequires:	pkgconfig(gthread-2.0)
 BuildRequires:	pkgconfig(mozjs-52)
 BuildRequires:	readline-devel
+BuildRequires:	pkgconfig(gtk+-3.0)
 
 %description
 This package contains JavaScript bindings based on gobject-introspection.
@@ -64,6 +65,7 @@ This package contains JavaScript bindings based on gobject-introspection.
 %build
 %configure \
 	--disable-static
+	--with-gtk
 
 %make
 
