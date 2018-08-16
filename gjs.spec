@@ -6,13 +6,13 @@
 %define devname	%mklibname -d %{name}
 %define girname	%mklibname %{name}-gir %{api}
 
-%define __noautoreq 'devel\\(libmozjs-24(.*)'
+%define __noautoreq 'devel\\(libmozjs-52(.*)'
 %define _disable_rebuild_configure 1
 
 Summary:	JavaScript bindings based on gobject-introspection
 Name:		gjs
-Version:	1.44.0
-Release:	2
+Version:	1.53.4
+Release:	1
 License:	BSD
 Group:		Development/Other
 Url:		http://live.gnome.org/Gjs
@@ -26,7 +26,10 @@ BuildRequires:	pkgconfig(gmodule-2.0)
 BuildRequires:	pkgconfig(gobject-2.0) >= 2.18.0
 BuildRequires:	pkgconfig(gobject-introspection-1.0) >= 1.29.16
 BuildRequires:	pkgconfig(gthread-2.0)
-BuildRequires:	pkgconfig(mozjs-24)
+BuildRequires:	pkgconfig(mozjs-52)
+BuildRequires:	readline-devel
+BuildRequires:	pkgconfig(gtk+-3.0)
+BuildRequires:	dbus
 
 %description
 This package contains JavaScript bindings based on gobject-introspection.
@@ -50,7 +53,7 @@ Summary:	JavaScript bindings based on gobject-introspection
 Group:		Development/C
 Requires:	%{libname} = %{version}-%{release}
 Requires:	%{girname} = %{version}-%{release}
-Requires:	pkgconfig(mozjs-24)
+Requires:	pkgconfig(mozjs-52)
 Provides:	%{name}-devel = %{version}-%{release}
 
 %description -n %{devname}
@@ -82,6 +85,8 @@ This package contains JavaScript bindings based on gobject-introspection.
 
 %files -n %{devname}
 %{_libdir}/libgjs.so
+%{_datadir}/gjs-%{api}/lsan/lsan.supp
+%{_datadir}/gjs-%{api}/valgrind/gjs.supp
 %{_libdir}/pkgconfig/gjs-%{api}.pc
-%{_libdir}/pkgconfig/gjs-internals-%{api}.pc
+#{_libdir}/pkgconfig/gjs-internals-%{api}.pc
 %{_includedir}/gjs-%{api}
