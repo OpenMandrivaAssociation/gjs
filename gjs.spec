@@ -66,7 +66,6 @@ This package contains JavaScript bindings based on gobject-introspection.
 %build
 %configure \
 	--disable-static
-	--with-gtk
 
 %make
 
