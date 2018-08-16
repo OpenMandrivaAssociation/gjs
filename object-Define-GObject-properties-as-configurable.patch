@@ -1,0 +1,35 @@
+From 6f9599b06ba27452e63b82020f12cec0b8917929 Mon Sep 17 00:00:00 2001
+From: Philip Chimento <philip.chimento@gmail.com>
+Date: Sat, 28 Jul 2018 23:09:32 -0400
+Subject: [PATCH] object: Define GObject properties as configurable
+
+We copied the non-configurable flag (JSPROP_PERMANENT) from the boxed.cpp
+lazy property code, but it's more appropriate to make these properties
+configurable so that interface properties can be overridden in the class
+that implements the interface, using GObject.ParamSpec.override().
+
+Closes: #186.
+---
+ gi/object.cpp | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/gi/object.cpp b/gi/object.cpp
+index 2b2265da..70032736 100644
+--- a/gi/object.cpp
++++ b/gi/object.cpp
+@@ -717,7 +717,11 @@ bool ObjectPrototype::lazy_define_gobject_property(JSContext* cx,
+     JS::RootedValue private_id(cx, JS::StringValue(JSID_TO_STRING(id)));
+     if (!gjs_define_property_dynamic(
+             cx, obj, name, "gobject_prop", &ObjectBase::prop_getter,
+-            &ObjectBase::prop_setter, private_id, GJS_MODULE_PROP_FLAGS))
++            &ObjectBase::prop_setter, private_id,
++            // Make property configurable so that interface properties can be
++            // overridden by GObject.ParamSpec.override in the class that
++            // implements them
++            GJS_MODULE_PROP_FLAGS & ~JSPROP_PERMANENT))
+         return false;
+ 
+     *resolved = true;
+-- 
+2.17.1
+
