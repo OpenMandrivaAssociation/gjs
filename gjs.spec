@@ -85,6 +85,8 @@ This package contains JavaScript bindings based on gobject-introspection.
 
 %files -n %{devname}
 %{_libdir}/libgjs.so
+%{_datadir}/gjs-%{api}/lsan/lsan.supp
+%{_datadir}/gjs-%{api}/valgrind/gjs.supp
 %{_libdir}/pkgconfig/gjs-%{api}.pc
 #{_libdir}/pkgconfig/gjs-internals-%{api}.pc
 %{_includedir}/gjs-%{api}
