@@ -29,6 +29,7 @@ BuildRequires:	pkgconfig(gthread-2.0)
 BuildRequires:	pkgconfig(mozjs-52)
 BuildRequires:	readline-devel
 BuildRequires:	pkgconfig(gtk+-3.0)
+BuildRequires:	dbus
 
 %description
 This package contains JavaScript bindings based on gobject-introspection.
