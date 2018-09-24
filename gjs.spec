@@ -17,7 +17,7 @@ License:	BSD
 Group:		Development/Other
 Url:		http://live.gnome.org/Gjs
 Source0:	http://download.gnome.org/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
-Patch0:		object-Define-GObject-properties-as-configurable.patch
+#Patch0:		object-Define-GObject-properties-as-configurable.patch
 
 BuildRequires:	pkgconfig(cairo)
 BuildRequires:	pkgconfig(cairo-gobject)
