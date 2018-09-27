@@ -6,7 +6,7 @@
 %define devname	%mklibname -d %{name}
 %define girname	%mklibname %{name}-gir %{api}
 
-%define __noautoreq 'devel\\(libmozjs-52(.*)'
+%define __noautoreq 'devel\\(libmozjs-60(.*)'
 %define _disable_rebuild_configure 1
 
 Summary:	JavaScript bindings based on gobject-introspection
