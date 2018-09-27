@@ -11,13 +11,13 @@
 
 Summary:	JavaScript bindings based on gobject-introspection
 Name:		gjs
-Version:	1.53.4
+Version:	1.54.1
 Release:	1
 License:	BSD
 Group:		Development/Other
 Url:		http://live.gnome.org/Gjs
 Source0:	http://download.gnome.org/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
-Patch0:		object-Define-GObject-properties-as-configurable.patch
+#Patch0:		object-Define-GObject-properties-as-configurable.patch
 
 BuildRequires:	pkgconfig(cairo)
 BuildRequires:	pkgconfig(cairo-gobject)
@@ -27,7 +27,7 @@ BuildRequires:	pkgconfig(gmodule-2.0)
 BuildRequires:	pkgconfig(gobject-2.0) >= 2.18.0
 BuildRequires:	pkgconfig(gobject-introspection-1.0) >= 1.29.16
 BuildRequires:	pkgconfig(gthread-2.0)
-BuildRequires:	pkgconfig(mozjs-52)
+BuildRequires:	pkgconfig(mozjs-60)
 BuildRequires:	readline-devel
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	dbus
