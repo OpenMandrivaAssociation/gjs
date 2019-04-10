@@ -66,6 +66,8 @@ This package contains JavaScript bindings based on gobject-introspection.
 %apply_patches
 
 %build
+export CC=gcc
+export CXX=g++
 %configure \
 	--disable-static
 
