@@ -1,12 +1,2 @@
-removed_sources:
-  gjs-1.36.1.tar.xz: a8e66339e0db086285a66ea262d4bfa1781afac7
-  gjs-1.37.6.tar.xz: 8bc9cd71da8de1eaac92217d48b787b660f0e0fe
-  gjs-1.42.0.tar.xz: 5fb84b6be866e64280beb8089ae7b4856a8cbde2
-  gjs-1.43.3.tar.xz: 066ef33a93ec3e3f9eeae7b81bca909d41b67f83
-  gjs-1.44.0.tar.xz: c38009d51c194f2c75c506cd5826d67ba44c81c8
-  gjs-1.53.4.tar.xz: 7193dffbc30e08fec94bc315feeb41bfdaa67c64
-  gjs-1.54.0.tar.xz: 9d7d1c97b9f230407ddd353caac99bfef27ad0cc
-  gjs-1.54.1.tar.xz: 35c4affca3d3ccf64c690219e03d44a363673e22
-  gjs-1.54.2.tar.xz: ed8f138b51005d47707f0bff74cc2cbc29cfb6b8
 sources:
-  gjs-1.54.3.tar.xz: 3e2d893aa9f48b59b9e355f46439d65ea5ab24b8
+  gjs-1.56.2.tar.xz: cf4f885d2d41a5c9fb85bd90df46bb67a93f4f07

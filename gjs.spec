@@ -11,7 +11,7 @@
 
 Summary:	JavaScript bindings based on gobject-introspection
 Name:		gjs
-Version:	1.54.3
+Version:	1.56.2
 Release:	1
 License:	BSD
 Group:		Development/Other
@@ -67,10 +67,10 @@ This package contains JavaScript bindings based on gobject-introspection.
 %configure \
 	--disable-static
 
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 %files
 %doc README COPYING NEWS
