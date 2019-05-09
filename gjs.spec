@@ -1,5 +1,5 @@
-%define _disable_ld_no_undefined 1
-%define _disable_lto 1
+#define _disable_ld_no_undefined 1
+#define _disable_lto 1
 %define url_ver %(echo %{version}|cut -d. -f1,2)
 
 %define api	1.0
@@ -66,8 +66,8 @@ This package contains JavaScript bindings based on gobject-introspection.
 %apply_patches
 
 %build
-export CC=gcc
-export CXX=g++
+#export CC=gcc
+#export CXX=g++
 %configure \
 	--disable-static
 
