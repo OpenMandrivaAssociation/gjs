@@ -67,10 +67,10 @@ This package contains JavaScript bindings based on gobject-introspection.
 %configure \
 	--disable-static
 
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 %files
 %doc README COPYING NEWS
