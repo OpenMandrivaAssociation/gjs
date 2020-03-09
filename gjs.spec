@@ -11,7 +11,7 @@
 
 Summary:	JavaScript bindings based on gobject-introspection
 Name:		gjs
-Version:	1.58.5
+Version:	1.60.0
 Release:	1
 License:	BSD
 Group:		Development/Other
@@ -31,6 +31,7 @@ BuildRequires:	readline-devel
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:  pkgconfig(dbus-1)
 BuildRequires:	dbus
+BuildRequires:	meson
 
 %description
 This package contains JavaScript bindings based on gobject-introspection.
@@ -65,13 +66,12 @@ This package contains JavaScript bindings based on gobject-introspection.
 %autopatch -p1
 
 %build
-%configure \
-	--disable-static
+%meson
 
-%make_build
+%meson_build
 
 %install
-%make_install
+%meson_install
 
 %files
 %doc README COPYING NEWS
