@@ -29,6 +29,7 @@ BuildRequires:	pkgconfig(gthread-2.0)
 BuildRequires:	pkgconfig(mozjs-60)
 BuildRequires:	readline-devel
 BuildRequires:	pkgconfig(gtk+-3.0)
+BuildRequires:  pkgconfig(dbus-1)
 BuildRequires:	dbus
 
 %description
