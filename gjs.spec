@@ -11,7 +11,7 @@
 
 Summary:	JavaScript bindings based on gobject-introspection
 Name:		gjs
-Version:	1.60.0
+Version:	1.64.0
 Release:	1
 License:	BSD
 Group:		Development/Other
