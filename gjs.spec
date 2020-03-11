@@ -33,6 +33,7 @@ BuildRequires:  pkgconfig(dbus-1)
 BuildRequires:  pkgconfig(sysprof-capture-3)
 BuildRequires:  cmake
 BuildRequires:	dbus
+BuildRequires:	dbus-daemon
 BuildRequires:	meson
 
 %description
