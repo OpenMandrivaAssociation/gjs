@@ -30,6 +30,8 @@ BuildRequires:	pkgconfig(mozjs-68)
 BuildRequires:	readline-devel
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:  pkgconfig(dbus-1)
+BuildRequires:  pkgconfig(sysprof-capture-3)
+BuildRequires:  cmake
 BuildRequires:	dbus
 BuildRequires:	meson
 
