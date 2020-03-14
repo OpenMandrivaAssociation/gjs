@@ -1,3 +1,6 @@
+# FIXME!
+#Need to use this below + GCC or see a lot of unfedined references like this:
+# undefined reference to `gjs_cairo_surface_construct(JSContext*, JS::Handle<JSObject*>, _cairo_surface*)'
 %define _disable_ld_no_undefined 1
 %define _disable_lto 1
 
@@ -72,6 +75,9 @@ This package contains JavaScript bindings based on gobject-introspection.
 %autopatch -p1
 
 %build
+# Needed or:   
+#/usr/include/sysprof-3/sysprof-capture-types.h:76:48: error: invalid suffix on literal; 
+#C++11 requires a space between literal and identifier [-Wreserved-user-defined-literal]
 export CC=gcc
 export CXX=g++
 %meson -Dinstalled_tests=false
