@@ -85,7 +85,7 @@ export CXX=g++
 %doc README.md COPYING NEWS
 %{_bindir}/gjs
 %{_bindir}/gjs-console
-%{_datadir}/glib-2.0/schemas/org.gnome.GjsTest.gschema.xml
+#{_datadir}/glib-2.0/schemas/org.gnome.GjsTest.gschema.xml
 
 %files -n %{libname}
 %{_libdir}/libgjs.so.%{major}*
