@@ -72,6 +72,8 @@ This package contains JavaScript bindings based on gobject-introspection.
 %autopatch -p1
 
 %build
+export CXXFLAGS="%{optflags} -std=c++14"
+
 %meson
 
 %meson_build
