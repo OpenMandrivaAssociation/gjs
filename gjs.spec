@@ -74,7 +74,7 @@ This package contains JavaScript bindings based on gobject-introspection.
 %build
 export CC=gcc
 export CXX=g++
-%meson
+%meson -Dinstalled_tests=false
 
 %meson_build
 
