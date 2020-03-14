@@ -82,7 +82,7 @@ export CXX=g++
 %meson_install
 
 %files
-%doc README COPYING NEWS
+%doc README.md COPYING NEWS
 %{_bindir}/gjs
 %{_bindir}/gjs-console
 %{_datadir}/glib-2.0/schemas/org.gnome.GjsTest.gschema.xml
