@@ -6,12 +6,12 @@
 %define devname	%mklibname -d %{name}
 %define girname	%mklibname %{name}-gir %{api}
 
-%define __noautoreq 'devel\\(libmozjs-68(.*)'
+%define __noautoreq 'devel\\(libmozjs-78(.*)'
 %define _disable_rebuild_configure 1
 
 Summary:	JavaScript bindings based on gobject-introspection
 Name:		gjs
-Version:	1.64.4
+Version:	1.66.0
 Release:	1
 License:	BSD
 Group:		Development/Other
@@ -26,11 +26,11 @@ BuildRequires:	pkgconfig(gmodule-2.0)
 BuildRequires:	pkgconfig(gobject-2.0) >= 2.18.0
 BuildRequires:	pkgconfig(gobject-introspection-1.0) >= 1.29.16
 BuildRequires:	pkgconfig(gthread-2.0)
-BuildRequires:	pkgconfig(mozjs-68) >= 68.6.0-2
+BuildRequires:	pkgconfig(mozjs-78)
 BuildRequires:	readline-devel
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:  pkgconfig(dbus-1)
-BuildRequires:  pkgconfig(sysprof-capture-3)
+BuildRequires:  pkgconfig(sysprof-capture-4)
 BuildRequires:  cmake
 BuildRequires:	dbus
 BuildRequires:	dbus-daemon
