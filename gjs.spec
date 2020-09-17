@@ -17,6 +17,8 @@ License:	BSD
 Group:		Development/Other
 Url:		http://live.gnome.org/Gjs
 Source0:	http://download.gnome.org/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
+# https://gitlab.gnome.org/GNOME/gjs/-/issues/347
+Patch0:   https://gitlab.gnome.org/GNOME/gjs/-/commit/701b03cf0634a76ba182dbf7a67ae141431ab9a5.patch
 
 BuildRequires:	pkgconfig(cairo)
 BuildRequires:	pkgconfig(cairo-gobject)
