@@ -12,7 +12,7 @@
 Summary:	JavaScript bindings based on gobject-introspection
 Name:		gjs
 Version:	1.68.0
-Release:	1
+Release:	2
 License:	BSD
 Group:		Development/Other
 Url:		http://live.gnome.org/Gjs
@@ -35,6 +35,9 @@ BuildRequires:  cmake
 BuildRequires:	dbus
 BuildRequires:	dbus-daemon
 BuildRequires:	meson
+
+# Filter requires for tests:
+%global __requires_exclude_from %{?__requires_exclude_from:%__requires_exclude_from|}/usr/libexec/installed-tests|/usr/libexec/gjs/installed-tests|/usr/share/installed-tests/gjs
 
 %description
 This package contains JavaScript bindings based on gobject-introspection.
@@ -64,9 +67,18 @@ Provides:	%{name}-devel = %{version}-%{release}
 %description -n %{devname}
 This package contains JavaScript bindings based on gobject-introspection.
 
+%package tests
+Summary: Tests for the gjs package
+Group: Development/Tools
+Requires: %{name}%{?_isa} = %{version}-%{release}
+
+%description tests
+The gjs-tests package contains tests that can be used to verify
+the functionality of the installed gjs package.
+
 %prep
 %autosetup -p1
-%meson -Dinstalled_tests=false
+%meson
 
 %build
 %meson_build
@@ -91,5 +103,9 @@ This package contains JavaScript bindings based on gobject-introspection.
 %{_datadir}/gjs-%{api}/lsan/lsan.supp
 %{_datadir}/gjs-%{api}/valgrind/gjs.supp
 %{_libdir}/pkgconfig/gjs-%{api}.pc
-#{_libdir}/pkgconfig/gjs-internals-%{api}.pc
 %{_includedir}/gjs-%{api}
+
+%files tests
+%{_libexecdir}/installed-tests/gjs
+%{_datadir}/glib-2.0/schemas/org.gnome.GjsTest.gschema.xml
+%{_datadir}/installed-tests
