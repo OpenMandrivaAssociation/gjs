@@ -11,7 +11,7 @@
 
 Summary:	JavaScript bindings based on gobject-introspection
 Name:		gjs
-Version:	1.72.2
+Version:	1.74.0
 Release:	1
 License:	BSD
 Group:		Development/Other
@@ -26,7 +26,7 @@ BuildRequires:	pkgconfig(gmodule-2.0)
 BuildRequires:	pkgconfig(gobject-2.0) >= 2.18.0
 BuildRequires:	pkgconfig(gobject-introspection-1.0) >= 1.29.16
 BuildRequires:	pkgconfig(gthread-2.0)
-BuildRequires:	pkgconfig(mozjs-91)
+BuildRequires:	pkgconfig(mozjs-102)
 BuildRequires:	readline-devel
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(gtk4)
