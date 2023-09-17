@@ -31,7 +31,7 @@ BuildRequires:	readline-devel
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(gtk4)
 BuildRequires:  pkgconfig(dbus-1)
-BuildRequires:  lib64sysprof-devel
+BuildRequires:  pkgconfig(sysprof-capture-4)
 BuildRequires:  cmake
 BuildRequires:	dbus
 BuildRequires:	dbus-daemon
