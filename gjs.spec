@@ -11,12 +11,12 @@
 
 Summary:	JavaScript bindings based on gobject-introspection
 Name:		gjs
-Version:	1.78.1
-Release:	2
+Version:	1.78.2
+Release:	1
 License:	BSD
 Group:		Development/Other
-Url:		http://live.gnome.org/Gjs
-Source0:	http://download.gnome.org/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
+Url:		https://live.gnome.org/Gjs
+Source0:	https://download.gnome.org/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
 
 BuildRequires:	pkgconfig(cairo)
 BuildRequires:	pkgconfig(cairo-gobject)
