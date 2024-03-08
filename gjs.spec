@@ -12,7 +12,7 @@
 Summary:	JavaScript bindings based on gobject-introspection
 Name:		gjs
 Version:	1.78.4
-Release:	2
+Release:	3
 License:	BSD
 Group:		Development/Other
 Url:		https://live.gnome.org/Gjs
@@ -36,6 +36,7 @@ BuildRequires:  cmake
 BuildRequires:	dbus
 BuildRequires:	dbus-daemon
 BuildRequires:	meson
+Provides: %{_bindir}/gjs
 
 # Filter requires for tests:
 %global __requires_exclude_from %{?__requires_exclude_from:%__requires_exclude_from|}/usr/libexec/installed-tests|/usr/libexec/gjs/installed-tests|/usr/share/installed-tests/gjs
