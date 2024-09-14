@@ -38,6 +38,8 @@ BuildRequires:	dbus-daemon
 BuildRequires:	meson
 Provides: %{_bindir}/gjs
 
+Requires:  mozjs128
+
 # Filter requires for tests:
 %global __requires_exclude_from %{?__requires_exclude_from:%__requires_exclude_from|}/usr/libexec/installed-tests|/usr/libexec/gjs/installed-tests|/usr/share/installed-tests/gjs
 
