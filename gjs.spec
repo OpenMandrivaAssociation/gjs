@@ -36,6 +36,7 @@ BuildRequires:  cmake
 BuildRequires:	dbus
 BuildRequires:	dbus-daemon
 BuildRequires:	meson
+BuildRequires:  mozjs128
 Provides: %{_bindir}/gjs
 
 Requires:  mozjs128
