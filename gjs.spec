@@ -6,13 +6,14 @@
 %define devname	%mklibname -d %{name}
 %define girname	%mklibname %{name}-gir %{api}
 
+%define __requires_exclude %{?__requires_exclude:%__requires_exclude|}typelib\\(GioWin32
 %define __noautoreq 'devel\\(libmozjs-78(.*)'
 %define _disable_rebuild_configure 1
 
 Summary:	JavaScript bindings based on gobject-introspection
 Name:		gjs
-Version:	1.84.2
-Release:	2
+Version:	1.85.90
+Release:	1
 License:	BSD
 Group:		Development/Other
 Url:		https://live.gnome.org/Gjs
@@ -26,7 +27,7 @@ BuildRequires:	pkgconfig(gmodule-2.0)
 BuildRequires:	pkgconfig(gobject-2.0) >= 2.18.0
 BuildRequires:	pkgconfig(gobject-introspection-1.0) >= 1.29.16
 BuildRequires:	pkgconfig(gthread-2.0)
-BuildRequires:	pkgconfig(mozjs-128)
+BuildRequires:	pkgconfig(mozjs-140)
 BuildRequires:	readline-devel
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(gtk4)
@@ -38,7 +39,7 @@ BuildRequires:	dbus-daemon
 BuildRequires:	meson
 Provides: %{_bindir}/gjs
 
-Requires:  mozjs128
+Requires:  mozjs140
 
 # Filter requires for tests:
 %global __requires_exclude_from %{?__requires_exclude_from:%__requires_exclude_from|}/usr/libexec/installed-tests|/usr/libexec/gjs/installed-tests|/usr/share/installed-tests/gjs
