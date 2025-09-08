@@ -26,7 +26,7 @@ BuildRequires:	pkgconfig(gmodule-2.0)
 BuildRequires:	pkgconfig(gobject-2.0) >= 2.18.0
 BuildRequires:	pkgconfig(gobject-introspection-1.0) >= 1.29.16
 BuildRequires:	pkgconfig(gthread-2.0)
-BuildRequires:	pkgconfig(mozjs-128)
+BuildRequires:	pkgconfig(mozjs-140)
 BuildRequires:	readline-devel
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(gtk4)
@@ -38,7 +38,7 @@ BuildRequires:	dbus-daemon
 BuildRequires:	meson
 Provides: %{_bindir}/gjs
 
-Requires:  mozjs128
+Requires:  mozjs140
 
 # Filter requires for tests:
 %global __requires_exclude_from %{?__requires_exclude_from:%__requires_exclude_from|}/usr/libexec/installed-tests|/usr/libexec/gjs/installed-tests|/usr/share/installed-tests/gjs
