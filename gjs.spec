@@ -6,6 +6,7 @@
 %define devname	%mklibname -d %{name}
 %define girname	%mklibname %{name}-gir %{api}
 
+%define __requires_exclude %{?__requires_exclude:%__requires_exclude|}typelib\\(GioWin32
 %define __noautoreq 'devel\\(libmozjs-78(.*)'
 %define _disable_rebuild_configure 1
 
