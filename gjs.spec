@@ -13,7 +13,7 @@
 Summary:	JavaScript bindings based on gobject-introspection
 Name:		gjs
 Version:	1.86.0
-Release:	2
+Release:	3
 License:	BSD
 Group:		Development/Other
 Url:		https://live.gnome.org/Gjs
@@ -66,7 +66,7 @@ Summary:	JavaScript bindings based on gobject-introspection
 Group:		Development/C
 Requires:	%{libname} = %{version}-%{release}
 Requires:	%{girname} = %{version}-%{release}
-Requires:	pkgconfig(mozjs-128)
+Requires:	pkgconfig(mozjs-140)
 Provides:	%{name}-devel = %{version}-%{release}
 
 %description -n %{devname}
