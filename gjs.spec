@@ -12,8 +12,8 @@
 
 Summary:	JavaScript bindings based on gobject-introspection
 Name:		gjs
-Version:	1.86.0
-Release:	3
+Version:	1.88.0
+Release:	1
 License:	BSD
 Group:		Development/Other
 Url:		https://live.gnome.org/Gjs
