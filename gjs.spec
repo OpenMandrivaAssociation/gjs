@@ -13,7 +13,7 @@
 Summary:	JavaScript bindings based on gobject-introspection
 Name:		gjs
 Version:	1.90.1
-Release:	1
+Release:	2
 License:	BSD
 Group:		Development/Other
 Url:		https://live.gnome.org/Gjs
@@ -40,6 +40,9 @@ BuildRequires:	meson
 Provides: %{_bindir}/gjs
 
 Requires:  mozjs140
+# Make sure .so and .typelib is pulled every time
+Requires:	%{libname} = %{version}-%{release}
+Requires:	%{girname} = %{version}-%{release}
 
 # Filter requires for tests:
 %global __requires_exclude_from %{?__requires_exclude_from:%__requires_exclude_from|}/usr/libexec/installed-tests|/usr/libexec/gjs/installed-tests|/usr/share/installed-tests/gjs
@@ -50,6 +53,7 @@ This package contains JavaScript bindings based on gobject-introspection.
 %package -n %{libname}
 Summary:	JavaScript bindings based on gobject-introspection
 Group:		System/Libraries
+Requires:	%{girname} = %{version}-%{release}
 
 %description -n %{libname}
 This package contains JavaScript bindings based on gobject-introspection.
